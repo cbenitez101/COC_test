@@ -1,0 +1,56 @@
+<section>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 text-center"><h1>Registro</h1></div>
+
+        <div class="container text-center p-100 color-fa-p01">
+          <%= form_for(@user) do |f| %>
+            <% if @user.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+                <ul>
+                <% @user.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>
+            <div class="row">
+              <div class="field">
+                <div class="col-md-3 col-md-offset-3 text-right">
+                  <%= f.label :email %>
+                </div>
+                <div class="col-md-3 text-left">
+                  <%= f.text_field :email %>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="field">
+                <div class="col-md-3 col-md-offset-3 text-right">
+                  <%= f.label :password %>
+                </div>
+                <div class="col-md-3 text-left">
+                  <%= f.password_field :password %>
+                  </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="field">
+                <div class="col-md-3 col-md-offset-3 text-right">
+                  <%= f.label :password_confirmation %>
+                </div>
+                <div class="col-md-3 text-left">
+                  <%= f.password_field :password_confirmation %>
+                  </div>
+              </div>
+            </div>
+            <div class="row"
+              <div class="actions">
+                  <%= f.submit %>
+              </div>
+            </div>
+            <% end %>
+        </div>
+    
+  </div>
+</section>

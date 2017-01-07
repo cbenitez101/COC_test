@@ -3,12 +3,64 @@
   <head>
     <title>COC</title>
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'https://fonts.googleapis.com/css?family=Candal%7CRaleway', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+  <nav class="navbar navbar-default navbar-fixed-top" id="menu">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed txt-white" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <i class="fa fa-th"></i>
+            </button>
+            <%= link_to "COC", root_path,class: "navbar-brand" %>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li> <%= link_to ("<i class='fa fa-cutlery fa-fw'></i> carta").html_safe, menu_path,class: "text-uppercase" %> </li>
+                <li> <%= link_to ("<i class='fa fa-map-marker fa-fw'></i> restaurante").html_safe, restaurant_path,class: "text-uppercase" %> </li>
+                <li> <%= link_to ("<i class='fa fa-calendar fa-fw'></i> reserva").html_safe, reservation_index_path,class: "text-uppercase" %>  </li>
+                <li> <%= link_to ("<i class='fa fa-motorcycle fa-fw'></i> pedido").html_safe, menu_path,class: "text-uppercase" %>  </li>
+                <li> <%= link_to ("<i class='fa fa-star fa-fw'></i> franquicia").html_safe, franchise_path,class: "text-uppercase" %>  </li>
+                <li>
+                
+                  <% if logged_in? %>
+                    <li><%= link_to ("<i class='fa fa-sign-out fa-fw'></i> Salir").html_safe, logout_path, class: "text-uppercase" %></li>
+                  <% else %>
+                     <li><%= link_to ("<i class='fa fa-sign-in fa-fw'></i> Accede").html_safe, login_path, class: "text-uppercase" %></li>
+                        <li><%= link_to ("<i class='fa fa-sign-out fa-fw'></i> Registrate").html_safe, signin_path, class: "text-uppercase" %></li>
+                  <% end %>
+                </div>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+  <%= content_tag(:p, notice, :class => 'notice') if notice.present? %>
+    <%= content_tag(:p, alert, :class => 'alert') if alert.present? %>
     <%= yield %>
+
+    <footer id="foot">
+    <div class="text-center bcolor-p07 color-p06">
+        <div class="container-fluid">
+            <div class="row p-25">
+                <div class="col-md-6 hidden-xs text-left">
+                    <p><em><strong>Síguenos en las redes sociales</strong></em></p>
+                </div>
+                <div class="col-md-6 col-xs-12 text-right">
+                    <i class="fa fa-facebook fa-lg p-10 changec-p06"></i>
+                    <i class="fa fa-twitter fa-lg p-10 changec-p06"></i>
+                    <i class="fa fa-instagram fa-lg p-10 changec-p06"></i>
+                    <i class="fa fa-youtube fa-lg p-10 changec-p06"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
   </body>
 </html>

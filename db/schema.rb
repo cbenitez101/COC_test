@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170104101517) do
+ActiveRecord::Schema.define(version: 20170105211308) do
 
   create_table "dishes", force: :cascade do |t|
     t.string   "name"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20170104101517) do
     t.text     "description"
     t.string   "category"
     t.float    "price"
+    t.string   "image"
     t.integer  "active"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -69,6 +70,8 @@ ActiveRecord::Schema.define(version: 20170104101517) do
     t.text     "description"
     t.integer  "phone"
     t.string   "address"
+    t.string   "provincia"
+    t.string   "localidad"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -77,9 +80,9 @@ ActiveRecord::Schema.define(version: 20170104101517) do
     t.integer  "rol"
     t.string   "username"
     t.string   "email"
-    t.string   "pass"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "hashed_password"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end
